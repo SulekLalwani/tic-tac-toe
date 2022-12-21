@@ -1,8 +1,15 @@
 import "./App.css";
 
 function App() {
+  let crossTurn = true;
+
   function addMark(event) {
-    event.currentTarget.childNodes[0].classList.add("cross");
+    if (crossTurn) {
+      event.currentTarget.childNodes[0].classList.add("cross");
+    } else {
+      event.currentTarget.childNodes[0].classList.add("circle");
+    }
+    crossTurn = crossTurn ? false : true;
   }
 
   return (

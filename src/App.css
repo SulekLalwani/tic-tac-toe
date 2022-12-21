@@ -21,3 +21,8 @@
   content: url(icons/close.svg);
   height: 100%;
 }
+
+.board div .circle {
+  content: url(icons/shape-circle.svg);
+  height: 100%;
+}
