@@ -1,33 +1,37 @@
 import "./App.css";
 
 function App() {
+  function addMark(event) {
+    event.currentTarget.childNodes[0].classList.add("cross");
+  }
+
   return (
     <div class="board">
-      <div>
+      <div onClick={addMark}>
         <i></i>
       </div>
-      <div>
+      <div onClick={addMark}>
         <i></i>
       </div>
-      <div>
+      <div onClick={addMark}>
         <i></i>
       </div>
-      <div>
+      <div onClick={addMark}>
         <i></i>
       </div>
-      <div>
+      <div onClick={addMark}>
         <i></i>
       </div>
-      <div>
+      <div onClick={addMark}>
         <i></i>
       </div>
-      <div>
+      <div onClick={addMark}>
         <i></i>
       </div>
-      <div>
+      <div onClick={addMark}>
         <i></i>
       </div>
-      <div>
+      <div onClick={addMark}>
         <i></i>
       </div>
     </div>
