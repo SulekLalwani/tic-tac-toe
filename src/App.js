@@ -11,16 +11,18 @@ function App() {
   ]);
 
   function addMark(x, y) {
-    if (crossTurn) {
-      const newBoard = [...board];
-      newBoard[x][y] = "X";
-      setMark(newBoard);
-    } else {
-      const newBoard = [...board];
-      newBoard[x][y] = "O";
-      setMark(newBoard);
+    if (!board[x][y]) {
+      if (crossTurn) {
+        const newBoard = [...board];
+        newBoard[x][y] = "X";
+        setMark(newBoard);
+      } else {
+        const newBoard = [...board];
+        newBoard[x][y] = "O";
+        setMark(newBoard);
+      }
+      crossTurn = crossTurn ? false : true;
     }
-    crossTurn = crossTurn ? false : true;
     console.log(board);
   }
 
