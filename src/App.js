@@ -23,37 +23,44 @@ function App() {
       }
       crossTurn = crossTurn ? false : true;
     }
-    console.log(board);
+  }
+
+  function displayMark(x, y) {
+    if (board[x][y] == "X") {
+      return "cross";
+    } else if (board[x][y] == "O") {
+      return "circle";
+    }
   }
 
   return (
     <div class="board">
       <div onClick={() => addMark(0, 0)}>
-        <i></i>
+        <i class={displayMark(0, 0)}></i>
       </div>
       <div onClick={() => addMark(0, 1)}>
-        <i></i>
+        <i class={displayMark(0, 1)}></i>
       </div>
       <div onClick={() => addMark(0, 2)}>
-        <i></i>
+        <i class={displayMark(0, 2)}></i>
       </div>
       <div onClick={() => addMark(1, 0)}>
-        <i></i>
+        <i class={displayMark(1, 0)}></i>
       </div>
       <div onClick={() => addMark(1, 1)}>
-        <i></i>
+        <i class={displayMark(1, 1)}></i>
       </div>
       <div onClick={() => addMark(1, 2)}>
-        <i></i>
+        <i class={displayMark(1, 2)}></i>
       </div>
       <div onClick={() => addMark(2, 0)}>
-        <i></i>
+        <i class={displayMark(2, 0)}></i>
       </div>
       <div onClick={() => addMark(2, 1)}>
-        <i></i>
+        <i class={displayMark(2, 1)}></i>
       </div>
       <div onClick={() => addMark(2, 2)}>
-        <i></i>
+        <i class={displayMark(2, 2)}></i>
       </div>
     </div>
   );
