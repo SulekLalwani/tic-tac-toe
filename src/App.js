@@ -23,7 +23,8 @@ function App() {
       }
       crossTurn = crossTurn ? false : true;
     }
-    checkWinner();
+    checkWinner("X");
+    checkWinner("O");
   }
 
   function displayMark(x, y) {
@@ -35,10 +36,10 @@ function App() {
   }
 
   let inRow = false;
-  function checkWinner() {
+  function checkWinner(mark) {
     for (let i = 0; i < board.length; i++) {
       for (let e = 0; e < board[i].length; e++) {
-        if (board[i][e] == "X") {
+        if (board[i][e] == mark) {
           inRow = true;
         } else {
           inRow = false;
@@ -46,14 +47,14 @@ function App() {
         }
       }
       if (inRow) {
-        console.log("X Won");
+        console.log(mark + " Won");
         break;
       }
     }
 
     for (let i = 0; i < board[0].length; i++) {
       for (let e = 0; e < board[i].length; e++) {
-        if (board[e][i] == "X") {
+        if (board[e][i] == mark) {
           inRow = true;
         } else {
           inRow = false;
@@ -61,13 +62,13 @@ function App() {
         }
       }
       if (inRow) {
-        console.log("X Won");
+        console.log(mark + " Won");
         break;
       }
     }
 
     for (let i = 0; i < board[0].length; i++) {
-      if (board[i][i] == "X") {
+      if (board[i][i] == mark) {
         inRow = true;
       } else {
         inRow = false;
@@ -75,13 +76,13 @@ function App() {
       }
     }
     if (inRow) {
-      console.log("X Won");
+      console.log(mark + " Won");
     }
 
     let e = board[0].length;
     for (let i = 0; i < board[0].length; i++) {
       e--;
-      if (board[i][e] == "X") {
+      if (board[i][e] == mark) {
         inRow = true;
       } else {
         inRow = false;
@@ -89,7 +90,7 @@ function App() {
       }
     }
     if (inRow) {
-      console.log("X Won");
+      console.log(mark + " Won");
     }
   }
 
