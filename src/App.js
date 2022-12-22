@@ -50,6 +50,21 @@ function App() {
         break;
       }
     }
+
+    for (let i = 0; i < board[0].length; i++) {
+      for (let e = 0; e < board[i].length; e++) {
+        if (board[e][i] == "X") {
+          inRow = true;
+        } else {
+          inRow = false;
+          break;
+        }
+      }
+      if (inRow) {
+        console.log("X Won");
+        break;
+      }
+    }
   }
 
   return (
