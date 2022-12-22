@@ -1,49 +1,56 @@
+import { useState } from "react";
 import "./App.css";
 
-function App() {
-  let crossTurn = true;
+let crossTurn = true;
 
-  function addMark(event) {
-    if (
-      !event.currentTarget.childNodes[0].classList.contains("cross") &&
-      !event.currentTarget.childNodes[0].classList.contains("circle")
-    ) {
-      if (crossTurn) {
-        event.currentTarget.childNodes[0].classList.add("cross");
-      } else {
-        event.currentTarget.childNodes[0].classList.add("circle");
-      }
-      crossTurn = crossTurn ? false : true;
+function App() {
+  const [board, setMark] = useState([
+    ["", "", ""],
+    ["", "", ""],
+    ["", "", ""],
+  ]);
+
+  function addMark(x, y) {
+    if (crossTurn) {
+      const newBoard = [...board];
+      newBoard[x][y] = "X";
+      setMark(newBoard);
+    } else {
+      const newBoard = [...board];
+      newBoard[x][y] = "O";
+      setMark(newBoard);
     }
+    crossTurn = crossTurn ? false : true;
+    console.log(board);
   }
 
   return (
     <div class="board">
-      <div onClick={addMark}>
+      <div onClick={() => addMark(0, 0)}>
         <i></i>
       </div>
-      <div onClick={addMark}>
+      <div onClick={() => addMark(0, 1)}>
         <i></i>
       </div>
-      <div onClick={addMark}>
+      <div onClick={() => addMark(0, 2)}>
         <i></i>
       </div>
-      <div onClick={addMark}>
+      <div onClick={() => addMark(1, 0)}>
         <i></i>
       </div>
-      <div onClick={addMark}>
+      <div onClick={() => addMark(1, 1)}>
         <i></i>
       </div>
-      <div onClick={addMark}>
+      <div onClick={() => addMark(1, 2)}>
         <i></i>
       </div>
-      <div onClick={addMark}>
+      <div onClick={() => addMark(2, 0)}>
         <i></i>
       </div>
-      <div onClick={addMark}>
+      <div onClick={() => addMark(2, 1)}>
         <i></i>
       </div>
-      <div onClick={addMark}>
+      <div onClick={() => addMark(2, 2)}>
         <i></i>
       </div>
     </div>
