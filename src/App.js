@@ -65,6 +65,32 @@ function App() {
         break;
       }
     }
+
+    for (let i = 0; i < board[0].length; i++) {
+      if (board[i][i] == "X") {
+        inRow = true;
+      } else {
+        inRow = false;
+        break;
+      }
+    }
+    if (inRow) {
+      console.log("X Won");
+    }
+
+    let e = board[0].length;
+    for (let i = 0; i < board[0].length; i++) {
+      e--;
+      if (board[i][e] == "X") {
+        inRow = true;
+      } else {
+        inRow = false;
+        break;
+      }
+    }
+    if (inRow) {
+      console.log("X Won");
+    }
   }
 
   return (
