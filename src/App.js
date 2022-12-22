@@ -23,6 +23,7 @@ function App() {
       }
       crossTurn = crossTurn ? false : true;
     }
+    checkWinner();
   }
 
   function displayMark(x, y) {
@@ -30,6 +31,24 @@ function App() {
       return "cross";
     } else if (board[x][y] == "O") {
       return "circle";
+    }
+  }
+
+  let inRow = false;
+  function checkWinner() {
+    for (let i = 0; i < board.length; i++) {
+      for (let e = 0; e < board[i].length; e++) {
+        if (board[i][e] == "X") {
+          inRow = true;
+        } else {
+          inRow = false;
+          break;
+        }
+      }
+      if (inRow) {
+        console.log("X Won");
+        break;
+      }
     }
   }
 
