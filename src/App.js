@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./App.css";
 
 let crossTurn = true;
+let gameOver = false;
 
 function App() {
   const [board, setMark] = useState([
@@ -11,7 +12,7 @@ function App() {
   ]);
 
   function addMark(x, y) {
-    if (!board[x][y]) {
+    if (!board[x][y] && !gameOver) {
       if (crossTurn) {
         const newBoard = [...board];
         newBoard[x][y] = "X";
@@ -23,8 +24,14 @@ function App() {
       }
       crossTurn = crossTurn ? false : true;
     }
-    checkWinner("X");
-    checkWinner("O");
+
+    if (checkWinner("X")) {
+      console.log("X Wins!");
+      gameOver = true;
+    } else if (checkWinner("O")) {
+      console.log("O Wins!");
+      gameOver = true;
+    }
   }
 
   function displayMark(x, y) {
@@ -47,7 +54,7 @@ function App() {
         }
       }
       if (inRow) {
-        console.log(mark + " Won");
+        return true;
         break;
       }
     }
@@ -62,7 +69,7 @@ function App() {
         }
       }
       if (inRow) {
-        console.log(mark + " Won");
+        return true;
         break;
       }
     }
@@ -76,7 +83,7 @@ function App() {
       }
     }
     if (inRow) {
-      console.log(mark + " Won");
+      return true;
     }
 
     let e = board[0].length;
@@ -90,7 +97,7 @@ function App() {
       }
     }
     if (inRow) {
-      console.log(mark + " Won");
+      return true;
     }
   }
 
