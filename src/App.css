@@ -22,14 +22,15 @@
   grid-template-areas: "pad pad pad";
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
-  gap: 5px;
+  gap: 8px;
   width: 100%;
   aspect-ratio: 1;
+  background-color: black;
 }
 
 .board div {
   grid-area: "pad";
-  background-color: grey;
+  background-color: white;
   display: flex;
   justify-content: center;
   align-items: center;
