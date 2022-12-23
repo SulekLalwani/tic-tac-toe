@@ -32,6 +32,9 @@ function App() {
     } else if (checkWinner("O")) {
       gameStatus = "O Wins";
       gameOver = true;
+    } else if (checkBoardFull()) {
+      gameStatus = "Draw";
+      gameOver = true;
     }
   }
 
@@ -98,6 +101,26 @@ function App() {
       }
     }
     if (inRow) {
+      return true;
+    }
+  }
+
+  let boardFull = false;
+  function checkBoardFull() {
+    for (let i = 0; i < board.length; i++) {
+      for (let e = 0; e < board[0].length; e++) {
+        if (board[i][e]) {
+          boardFull = true;
+        } else {
+          boardFull = false;
+          break;
+        }
+      }
+      if (!boardFull) {
+        break;
+      }
+    }
+    if (boardFull) {
       return true;
     }
   }
