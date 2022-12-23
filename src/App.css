@@ -1,3 +1,16 @@
+.game {
+  display: flex;
+  height: 350px;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.gameStatus {
+  margin: 0;
+}
+
 .board {
   display: flex;
   display: grid;

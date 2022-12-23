@@ -3,6 +3,7 @@ import "./App.css";
 
 let crossTurn = true;
 let gameOver = false;
+let gameStatus = "";
 
 function App() {
   const [board, setMark] = useState([
@@ -26,10 +27,10 @@ function App() {
     }
 
     if (checkWinner("X")) {
-      console.log("X Wins!");
+      gameStatus = "X Wins";
       gameOver = true;
     } else if (checkWinner("O")) {
-      console.log("O Wins!");
+      gameStatus = "O Wins";
       gameOver = true;
     }
   }
@@ -102,35 +103,40 @@ function App() {
   }
 
   return (
-    <div class="board">
-      <div onClick={() => addMark(0, 0)}>
-        <i class={displayMark(0, 0)}></i>
+    <>
+      <div class="game">
+        <p class="gameStatus">{gameStatus}</p>
+        <div class="board">
+          <div onClick={() => addMark(0, 0)}>
+            <i class={displayMark(0, 0)}></i>
+          </div>
+          <div onClick={() => addMark(0, 1)}>
+            <i class={displayMark(0, 1)}></i>
+          </div>
+          <div onClick={() => addMark(0, 2)}>
+            <i class={displayMark(0, 2)}></i>
+          </div>
+          <div onClick={() => addMark(1, 0)}>
+            <i class={displayMark(1, 0)}></i>
+          </div>
+          <div onClick={() => addMark(1, 1)}>
+            <i class={displayMark(1, 1)}></i>
+          </div>
+          <div onClick={() => addMark(1, 2)}>
+            <i class={displayMark(1, 2)}></i>
+          </div>
+          <div onClick={() => addMark(2, 0)}>
+            <i class={displayMark(2, 0)}></i>
+          </div>
+          <div onClick={() => addMark(2, 1)}>
+            <i class={displayMark(2, 1)}></i>
+          </div>
+          <div onClick={() => addMark(2, 2)}>
+            <i class={displayMark(2, 2)}></i>
+          </div>
+        </div>
       </div>
-      <div onClick={() => addMark(0, 1)}>
-        <i class={displayMark(0, 1)}></i>
-      </div>
-      <div onClick={() => addMark(0, 2)}>
-        <i class={displayMark(0, 2)}></i>
-      </div>
-      <div onClick={() => addMark(1, 0)}>
-        <i class={displayMark(1, 0)}></i>
-      </div>
-      <div onClick={() => addMark(1, 1)}>
-        <i class={displayMark(1, 1)}></i>
-      </div>
-      <div onClick={() => addMark(1, 2)}>
-        <i class={displayMark(1, 2)}></i>
-      </div>
-      <div onClick={() => addMark(2, 0)}>
-        <i class={displayMark(2, 0)}></i>
-      </div>
-      <div onClick={() => addMark(2, 1)}>
-        <i class={displayMark(2, 1)}></i>
-      </div>
-      <div onClick={() => addMark(2, 2)}>
-        <i class={displayMark(2, 2)}></i>
-      </div>
-    </div>
+    </>
   );
 }
 
