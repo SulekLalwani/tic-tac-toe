@@ -3,7 +3,7 @@ import "./App.css";
 
 let crossTurn = true;
 let gameOver = false;
-let gameStatus = "";
+let gameStatus = "ㅤ";
 
 function App() {
   const [board, setMark] = useState([
@@ -102,6 +102,18 @@ function App() {
     }
   }
 
+  function restartGame() {
+    setMark([
+      ["", "", ""],
+      ["", "", ""],
+      ["", "", ""],
+    ]);
+
+    gameOver = false;
+    crossTurn = true;
+    gameStatus = "ㅤ";
+  }
+
   return (
     <>
       <div class="game">
@@ -135,6 +147,9 @@ function App() {
             <i class={displayMark(2, 2)}></i>
           </div>
         </div>
+        <p class="restartGame" onClick={restartGame}>
+          Restart Game
+        </p>
       </div>
     </>
   );

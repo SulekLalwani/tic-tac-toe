@@ -1,10 +1,15 @@
 .game {
   display: flex;
-  height: 350px;
+  height: 400px;
+  width: 300px;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .gameStatus {
@@ -18,8 +23,8 @@
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
   gap: 5px;
-  height: 300px;
-  width: 300px;
+  width: 100%;
+  aspect-ratio: 1;
 }
 
 .board div {
@@ -38,4 +43,13 @@
 .board div .circle {
   content: url(icons/shape-circle.svg);
   height: 100%;
+}
+
+.restartGame {
+  margin: 0;
+  cursor: pointer;
+}
+
+.restartGame:hover {
+  text-decoration: underline;
 }
