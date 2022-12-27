@@ -3,7 +3,7 @@ import "./App.css";
 
 let crossTurn = true;
 let gameOver = false;
-let gameStatus = "ㅤ";
+let gameStatus = "X Turn";
 
 function App() {
   const [board, setMark] = useState([
@@ -24,6 +24,12 @@ function App() {
         setMark(newBoard);
       }
       crossTurn = crossTurn ? false : true;
+    }
+
+    if (crossTurn) {
+      gameStatus = "X Turn";
+    } else {
+      gameStatus = "O Turn";
     }
 
     if (checkWinner("X")) {
@@ -134,7 +140,7 @@ function App() {
 
     gameOver = false;
     crossTurn = true;
-    gameStatus = "ㅤ";
+    gameStatus = "X Turn";
   }
 
   return (
